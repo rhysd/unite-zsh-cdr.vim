@@ -14,9 +14,8 @@ function! unite#sources#zsh_cdr#define()
 endfunction
 
 function! s:source.gather_candidates(args, context)
-    let chpwd_recent_dirs = readfile(expand('~/.chpwd-recent-dirs'))
-    let chpwd_recent_dirs = map(chpwd_recent_dirs,
-                              \ 'matchstr(v:val, "^.''\\zs.*\\ze''$")')
+    let chpwd_recent_dirs = map(readfile(expand('~/.chpwd-recent-dirs')),
+                                \ 'matchstr(v:val, "^.''\\zs.*\\ze''$")')
     return map(chpwd_recent_dirs, "{
                 \ 'word' : v:val,
                 \ 'action__path' : v:val,
