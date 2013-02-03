@@ -9,6 +9,18 @@ In order to use this plugin, zsh must have cdr function and you must usually use
 Unite zsh-cdr
 ```
 
+## Zsh Setting
+
+```zsh
+autoload -Uz add-zsh-hook
+autoload -Uz chpwd_recent_dirs
+autoload -Uz cdr
+
+add-zsh-hook chpwd chpwd_recent_dirs
+zstyle ':chpwd:*' recent-dirs-max 5000
+zstyle ':chpwd:*' recent-dirs-default yes
+```
+
 ## License
 
 MIT license.
